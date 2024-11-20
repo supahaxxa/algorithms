@@ -1,40 +1,39 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-int sh_array_max(int arr[], int size) {
-	int result;
-	if (size == 0) return 0;
+int array_max(vector<int>& arr) {
+	if (arr.size() == 0) return 0;
 	else {
-		result = arr[0];
-		for (int i = 0; i < size; i++) if (arr[i] > result) result = arr[i];
+		int result = arr[0];
+		for (int i = 1; i < arr.size(); i++) if (arr[i] > result) result = arr[i];
+		return result;
 	}
-
-	return result;
 }
 
-int sh_array_min(int arr[], int size) {
-	int result;
-	if (size == 0) return 0;
+int array_min(vector<int>& arr) {
+	if (arr.size() == 0) return 0;
 	else {
-		result = arr[0];
-		for (int i = 0; i < size; i++) if (arr[i] < result) result = arr[i];
+		int result = arr[0];
+		for (int i = 1; i < arr.size(); i++) if (arr[i] < result) result = arr[i];
+		return result;
 	}
-
-	return result;
 }
 
-int sh_digits_sum(int n) {
+// for not so large numbers
+int digits_sum_int(int n) {
 	int sum = 0;
-	while (n >= 10) {
+	while (n) {
 		sum += (n % 10);
 		n /= 10;
 	}
-	sum += n;
-
 	return sum;
 }
 
-void sh_divisors(int n) {
+// for large numbers
+int digits_sum_string(string n) {
+	int sum = 0;
+	for (int i = 0; i < n.length(); i++) sum += (n[i] - '0');
+	return sum;
+}
+
+void divisors(int n) {
 	vector<int> v;
 
 	for (int i = 1; i <= sqrt(n); i++) {
@@ -140,13 +139,8 @@ void sh_sieve(int n) {
 	}
 }
 
-int sh_sum(int arr[], int size) {
-	size -= 1;
+int summation(vector<int>& arr) {
 	int result = 0;
-
-	for (; size >= 0; size--) {
-		result += arr[size];
-	}
-
+	for (int i = 0; i < arr.size(); i++) result += arr[i];
 	return result;
 }
