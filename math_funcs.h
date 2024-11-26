@@ -58,11 +58,30 @@ int gcd_recursive(int a, int b) {
 	int temp = a;
 	a = b;
 	b = temp % a;
-	return hcf(a, b);
+	return gcd_recursive(a, b);
+}
+
+bool is_prime(int number) {
+	if (number == 1) return false;
+	if ((number == 2) || (number == 3)) return true;
+	if (number % 2 == 0) return false;
+	if (number % 3 == 0) return false;
+
+	int a = 5, b = 7;
+
+	while (a * a <= number) {
+		if (number % a == 0) return false;
+		if (number % b == 0) return false;
+
+		a = a + 6;
+		b = b + 6;
+	}
+
+	return true;
 }
 
 int lcm(int a, int b) {
-	return a * b / gcd_recursive(a, b);
+	return a * b / gcd_iterative(a, b);
 }
 
 int mod_power(long long x, unsigned int y, int m) {
