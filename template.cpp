@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// define you functions from here
+// function definitions
 
 int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
 
-  // enter your code from here
+  // main code
 
   return 0;
 }
